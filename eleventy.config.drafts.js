@@ -3,7 +3,7 @@ function eleventyComputedPermalink() {
 	// `addGlobalData` acts like a global data file and runs the top level function it receives.
 	return (data) => {
 		// Always skip during non-watch/serve builds
-		if(data.draft && !process.env.BUILD_DRAFTS) {
+		if (data.draft && !process.env.BUILD_DRAFTS) {
 			return false;
 		}
 
@@ -16,7 +16,7 @@ function eleventyComputedExcludeFromCollections() {
 	// `addGlobalData` acts like a global data file and runs the top level function it receives.
 	return (data) => {
 		// Always exclude from non-watch/serve builds
-		if(data.draft && !process.env.BUILD_DRAFTS) {
+		if (data.draft && !process.env.BUILD_DRAFTS) {
 			return true;
 		}
 
@@ -32,17 +32,17 @@ module.exports = eleventyConfig => {
 	eleventyConfig.addGlobalData("eleventyComputed.eleventyExcludeFromCollections", eleventyComputedExcludeFromCollections);
 
 	let logged = false;
-	eleventyConfig.on("eleventy.before", ({runMode}) => {
+	eleventyConfig.on("eleventy.before", ({ runMode }) => {
 		let text = "Excluding";
 		// Only show drafts in serve/watch modes
-		if(runMode === "serve" || runMode === "watch") {
+		if (runMode === "serve" || runMode === "watch") {
 			process.env.BUILD_DRAFTS = true;
 			text = "Including";
 		}
 
 		// Only log once.
-		if(!logged) {
-			console.log( `[11ty/eleventy-base-blog] ${text} drafts.` );
+		if (!logged) {
+			console.log(`[11ty/eleventy-base-blog] ${text} drafts.`);
 		}
 
 		logged = true;

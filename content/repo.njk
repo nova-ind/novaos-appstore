@@ -1,0 +1,37 @@
+---
+permalink: /appstore.json
+eleventyExcludeFromCollections: true
+---
+
+{
+    "metadata": {
+        "repoFriendlyName": "{{ metadata.title }}",
+        "repoVersion": "{{ metadata.repoVersion }}",
+        "maintainer": "{{ metadata.author.name }}"
+    },
+    "categories": [
+        {% set allTags = [] -%}
+        {% for app in collections.apps -%}
+            {% for tag in app.data.tags -%}
+                {% if allTags.indexOf(tag) === -1 -%}
+                    {% set _ = allTags.push(tag) -%}
+                {% endif -%}
+            {% endfor -%}
+        {% endfor -%}
+        {% for category in allTags -%}
+            "{{ category }}"{% if not loop.last %},{% endif -%}
+        {% endfor -%}
+    ],
+    "applications": [
+        {% for app in collections.apps -%}
+        {
+            "appName": "{{ app.data.title }}",
+            "appIcon": "{{ app.data.appIcon }}",
+            "appBanner": "{{ app.data.appBanner }}",
+            "appDescription": "{{ app.data.appDescription }}",
+            "appAuthor": "{{ app.data.appAuthor }}",
+            "appCategory": "{{ app.data.tags[0] }}"
+        }{% if not loop.last %},{% endif -%}
+        {% endfor -%}
+    ]
+}

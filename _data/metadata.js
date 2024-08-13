@@ -1,11 +1,8 @@
 module.exports = {
-	title: "Eleventy Base Blog v8",
-	url: "https://example.com/",
-	language: "en",
-	description: "I am writing about my experiences as a naval navel-gazer.",
+	title: "NovaOS System Application Repo",
+	repoVersion: "1.0.0",
 	author: {
 		name: "Your Name Here",
-		email: "youremailaddress@example.com",
-		url: "https://example.com/about-me/"
-	}
+	},
+	repoURL: "https://repo.os.novafurry.win/repo"
 }
