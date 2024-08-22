@@ -2,7 +2,7 @@
 title: "Application"
 tags: 
   - Utility
-  - backendTagFeatured
+  - backendTagOfficial
 appIcon: "https://placehold.co/600x400/EEE/31343C"
 appBanner: "https://placehold.co/600x400/EEE/31343C"
 appDescription: "A brief description of the application."
