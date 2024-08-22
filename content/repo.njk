@@ -30,6 +30,7 @@ eleventyExcludeFromCollections: true
             "banner": "{{ app.data.appBanner }}",
             "description": "{{ app.data.appDescription }}",
             "author": "{{ app.data.appAuthor }}",
+            "id": "{{ app.data.id }}",
             "category": "{{ app.data.tags }}"
         }{% if not loop.last %},{% endif -%}
         {% endfor -%}
