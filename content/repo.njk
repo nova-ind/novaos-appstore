@@ -25,12 +25,12 @@ eleventyExcludeFromCollections: true
     "applications": [
         {% for app in collections.apps -%}
         {
-            "appName": "{{ app.data.title }}",
-            "appIcon": "{{ app.data.appIcon }}",
-            "appBanner": "{{ app.data.appBanner }}",
-            "appDescription": "{{ app.data.appDescription }}",
-            "appAuthor": "{{ app.data.appAuthor }}",
-            "appCategory": "{{ app.data.tags[0] }}"
+            "name": "{{ app.data.title }}",
+            "icon": "{{ app.data.appIcon }}",
+            "banner": "{{ app.data.appBanner }}",
+            "description": "{{ app.data.appDescription }}",
+            "author": "{{ app.data.appAuthor }}",
+            "category": "{{ app.data.tags }}"
         }{% if not loop.last %},{% endif -%}
         {% endfor -%}
     ]
